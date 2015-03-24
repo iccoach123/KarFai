@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="20dp" >
+
+        <TextView
+            android:id="@+id/TextView07"
+            android:layout_width="174dp"
+            android:layout_height="wrap_content"
+            android:text="จำนวนเวลาที่ใช้ต่อวัน"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/time"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:inputType="time"
+            android:ems="10" >
+
+            <requestFocus />
+        </EditText>
+
+        <TextView
+            android:id="@+id/TextView08"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ชม."
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="20dp" >
+
+        <TextView
+            android:id="@+id/TextView09"
+            android:layout_width="174dp"
+            android:layout_height="wrap_content"
+            android:text="จำนวนวันต่อเดือน"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/day"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10" />
+
+        <TextView
+            android:id="@+id/TextView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="วัน"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="20dp" >
+
+        <TextView
+            android:id="@+id/TextView06"
+            android:layout_width="174dp"
+            android:layout_height="wrap_content"
+            android:text="จำนวนเครื่องที่ใช้"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/amount"
+            android:layout_width="65dp"
+            android:inputType="number"
+            android:layout_height="wrap_content"
+            android:ems="10" />
+
+        <TextView
+            android:id="@+id/TextView05"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="เครื่อง"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
+
+</LinearLayout>

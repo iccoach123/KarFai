@@ -1,17 +1,30 @@
 package com.example.karfai;
 
+import java.util.List;
+
+import com.example.fragment.Calculate;
+
+
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
 public class MainActivity extends Activity {
+	private DrawerLayout mDrawerLayout;
+	private List<Fragment> listFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //mDrawerLayout = (DrawerLayout) findViewById(R.id.frame_container);
+        displayView(0);
+        
     }
 
 
@@ -33,4 +46,25 @@ public class MainActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
+    public void displayView(int position) {
+		Fragment fragment ;
+
+		switch (position) {
+		case 0:
+			fragment = new Calculate();
+
+			break;
+
+		
+		default:
+			fragment = null;
+		}
+		
+		if (fragment != null) {
+			FragmentManager fragmentManager = getFragmentManager();
+			fragmentManager.beginTransaction().addToBackStack(null)
+					.replace(R.id.frame_container, fragment).commit();
+
+		}
+	}
 }
