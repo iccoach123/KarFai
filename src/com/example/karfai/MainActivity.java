@@ -1,8 +1,19 @@
 package com.example.karfai;
 
+
 import java.util.List;
 
 import com.example.fragment.Calculate;
+
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
+
+import com.opencsv.CSVReader;
 
 
 import android.app.Activity;
@@ -22,9 +33,40 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         //mDrawerLayout = (DrawerLayout) findViewById(R.id.frame_container);
         displayView(0);
+
         
+        
+        URL url = getClass().getResource("test.csv");
+        //File file = new File(url.getPath());
+        String csvFilename = "..//test.csv";
+        CSVReader csvReader = null;
+		try {
+			csvReader = new CSVReader(new InputStreamReader(getAssets().open("test.csv")));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};
+        String[] row = null;
+        try {
+			while((row = csvReader.readNext()) != null) {
+			    System.out.println(row[0]
+			              + " # " + row[1]
+			              + " #  " + row[2]);
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        try {
+			csvReader.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
     }
 
 
@@ -46,6 +88,7 @@ public class MainActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
+
     public void displayView(int position) {
 		Fragment fragment ;
 
@@ -67,4 +110,5 @@ public class MainActivity extends Activity {
 
 		}
 	}
+
 }
