@@ -3,6 +3,7 @@ package com.example.karfai;
 
 import java.util.List;
 
+import com.example.fragment.Additems;
 import com.example.fragment.Calculate;
 
 
@@ -21,6 +22,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -28,11 +30,13 @@ import android.view.MenuItem;
 public class MainActivity extends Activity {
 	private DrawerLayout mDrawerLayout;
 	private List<Fragment> listFragment;
+	private huador listData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        listData = new huador();
 
         //mDrawerLayout = (DrawerLayout) findViewById(R.id.frame_container);
         displayView(0);
@@ -91,11 +95,14 @@ public class MainActivity extends Activity {
 
     public void displayView(int position) {
 		Fragment fragment ;
+		//Log.d("1", "1");
 
 		switch (position) {
 		case 0:
-			fragment = new Calculate();
-
+			fragment = new Calculate(this);
+			break;
+		case 1:
+			fragment = new Additems(this);
 			break;
 
 		
@@ -104,11 +111,31 @@ public class MainActivity extends Activity {
 		}
 		
 		if (fragment != null) {
+			Log.d("!null","!null");
 			FragmentManager fragmentManager = getFragmentManager();
 			fragmentManager.beginTransaction().addToBackStack(null)
 					.replace(R.id.frame_container, fragment).commit();
 
+		}else{
+			Log.d("null","null");
 		}
 	}
+    public List<Data> getListData(){
+		return listData.getListData();
+    	
+    }
+    public void addListData(Data item){
+    	
+    	Data selectvalue = new Data();
+    	
+    	selectvalue.setId(listData.getListData().size()+1);
+    	selectvalue.setName(item.getName());
+    	selectvalue.setWat(item.getWat());
+    	listData.addData(selectvalue);
+    	displayView(0);
+    }
+    public List<Data> getitems(){
+    	return listData.getItemAdd();
+    }
 
 }

@@ -22,7 +22,7 @@
             android:id="@+id/time"
             android:layout_width="65dp"
             android:layout_height="wrap_content"
-            android:inputType="time"
+            android:inputType="numberDecimal"
             android:ems="10" >
 
             <requestFocus />
@@ -34,6 +34,7 @@
             android:layout_height="wrap_content"
             android:text="ชม."
             android:textAppearance="?android:attr/textAppearanceMedium" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -93,5 +94,29 @@
             android:text="เครื่อง"
             android:textAppearance="?android:attr/textAppearanceMedium" />
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageButton
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="16dp"
+            android:layout_toLeftOf="@+id/imageButton1"
+            android:src="@drawable/save" />
+
+        <ImageButton
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/delete" />
+
+    </RelativeLayout>
 
 </LinearLayout>

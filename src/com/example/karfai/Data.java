@@ -4,9 +4,16 @@ import java.util.List;
 
 public class Data {
 	private double time=0;
-	private double day=0;
+	private int day=0;
 	private int amount=0;
 	private double wat;
+	private int id;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	private String name;
 	private String detail;
 
@@ -19,10 +26,10 @@ public class Data {
 	public void setTime(double time) {
 		this.time = time;
 	}
-	public double getDay() {
+	public int getDay() {
 		return day;
 	}
-	public void setDay(double day) {
+	public void setDay(int day) {
 		this.day = day;
 	}
 	public int getAmount() {
