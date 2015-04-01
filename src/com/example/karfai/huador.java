@@ -40,8 +40,8 @@ public class huador {
 	public void addData(Data value){
 		listData.add(value);
 	}
-	public void remove(){
-		
+	public void remove(int position){
+		listData.remove(position);
 	}
 	
 	

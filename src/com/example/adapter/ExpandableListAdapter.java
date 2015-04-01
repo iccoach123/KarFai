@@ -16,6 +16,7 @@ import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -27,6 +28,8 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 	private HashMap<Data, Data> data;
 	private LayoutInflater infalInflater;
 	private MainActivity main;
+	private List<Data> test;
+
 
 	public ExpandableListAdapter(LayoutInflater infalInflater,
 			List<Data> listGroup, HashMap<Data, Data> data,
@@ -48,7 +51,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 	}
 
 	@Override
-	public View getChildView(int groupPosition, final int childPosition,
+	public View getChildView(final int groupPosition, final int childPosition,
 			boolean isLastChild, View convertView, ViewGroup parent) {
 		Log.d("!!!!!!!!", groupPosition+"");
 
@@ -58,6 +61,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 		final EditText day = (EditText) convertView.findViewById(R.id.day);
 		final EditText amount = (EditText) convertView
 				.findViewById(R.id.amount);
+		final ImageButton deleteButton = (ImageButton) convertView.findViewById(R.id.buttondelete);
 		time.setText(value.getTime() + "");
 		day.setText(value.getDay() + "");
 		amount.setText(value.getAmount() + "");
@@ -99,6 +103,15 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
 				}
 
+			}
+		});
+		deleteButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				main.remove(groupPosition);
+				
 			}
 		});
 

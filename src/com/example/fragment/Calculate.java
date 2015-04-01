@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.example.adapter.ExpandableListAdapter;
+import com.example.adapter.test;
 import com.example.karfai.Data;
 import com.example.karfai.MainActivity;
 import com.example.karfai.R;
@@ -38,6 +39,7 @@ public class Calculate extends Fragment{
 		createData();
 		ExpandableListView expListView = (ExpandableListView) rootView.findViewById(R.id.expandableListView1);
 		ExpandableListAdapter adapter =new ExpandableListAdapter(inflater, header, child,main);
+		//test adapter =new test(inflater,listData);
 		expListView.setAdapter(adapter);
 		
 		return rootView;

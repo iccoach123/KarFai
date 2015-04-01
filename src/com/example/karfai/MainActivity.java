@@ -30,13 +30,13 @@ import android.view.MenuItem;
 public class MainActivity extends Activity {
 	private DrawerLayout mDrawerLayout;
 	private List<Fragment> listFragment;
-	private huador listData;
+	private huador data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        listData = new huador();
+        data = new huador();
 
         //mDrawerLayout = (DrawerLayout) findViewById(R.id.frame_container);
         displayView(0);
@@ -121,21 +121,25 @@ public class MainActivity extends Activity {
 		}
 	}
     public List<Data> getListData(){
-		return listData.getListData();
+		return data.getListData();
     	
     }
     public void addListData(Data item){
     	
     	Data selectvalue = new Data();
     	
-    	selectvalue.setId(listData.getListData().size()+1);
+    	selectvalue.setId(data.getListData().size()+1);
     	selectvalue.setName(item.getName());
     	selectvalue.setWat(item.getWat());
-    	listData.addData(selectvalue);
+    	data.addData(selectvalue);
     	displayView(0);
     }
     public List<Data> getitems(){
-    	return listData.getItemAdd();
+    	return data.getItemAdd();
+    }
+    public void remove(int position){
+    	data.remove(position);
+    	displayView(0);
     }
 
 }
