@@ -9,11 +9,16 @@ import com.example.karfai.R;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.text.method.KeyListener;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
+import android.view.View.OnKeyListener;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
@@ -29,7 +34,16 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 	private LayoutInflater infalInflater;
 	private MainActivity main;
 	private List<Data> test;
+	private TextView txtWat;
 
+
+	public TextView getTxtWat() {
+		return txtWat;
+	}
+
+	public void setTxtWat(TextView txtWat) {
+		this.txtWat = txtWat;
+	}
 
 	public ExpandableListAdapter(LayoutInflater infalInflater,
 			List<Data> listGroup, HashMap<Data, Data> data,
@@ -65,6 +79,92 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 		time.setText(value.getTime() + "");
 		day.setText(value.getDay() + "");
 		amount.setText(value.getAmount() + "");
+		time.addTextChangedListener(new TextWatcher() {
+			
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {
+				// TODO Auto-generated method stub
+				try{
+					Log.e("bug", s.toString());
+					
+					double inputValue = Double.parseDouble(s.toString());
+					value.setTime(inputValue);
+				}catch(Exception e){
+					
+				}
+				
+			}
+			
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count,
+					int after) {
+				// TODO Auto-generated method stub
+				Log.e("before", s.toString());
+				
+			}
+			
+			@Override
+			public void afterTextChanged(Editable s) {
+				// TODO Auto-generated method stub
+				Log.e("after", s.toString());
+				
+			}
+		});
+		day.addTextChangedListener(new TextWatcher() {
+			
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {
+				// TODO Auto-generated method stub
+				try{
+					int inputValue = Integer.parseInt(s.toString());
+					value.setDay(inputValue);
+				}catch(Exception e){
+					
+				}
+				
+			}
+			
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count,
+					int after) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void afterTextChanged(Editable s) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		amount.addTextChangedListener(new TextWatcher() {
+			
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {
+				// TODO Auto-generated method stub
+				try{
+					int inputValue = Integer.parseInt(s.toString());
+					value.setAmount(inputValue);
+				}catch(Exception e){
+					
+				}
+				
+			}
+			
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count,
+					int after) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void afterTextChanged(Editable s) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		/*
 		time.setOnFocusChangeListener(new OnFocusChangeListener() {
 
 			@Override
@@ -72,6 +172,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 				// TODO Auto-generated method stub
 				try {
 					value.setTime(Double.parseDouble(time.getText().toString()));
+
 				} catch (Exception e) {
 					time.setText(value.getTime() + "");
 				}
@@ -85,6 +186,8 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 				// TODO Auto-generated method stub
 				try {
 					value.setDay(Integer.parseInt(day.getText().toString()));
+
+			
 				} catch (Exception e) {
 					day.setText(value.getDay() + "");
 
@@ -98,13 +201,14 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 				// TODO Auto-generated method stub\	
 				try {
 					value.setAmount(Integer.parseInt(amount.getText().toString()));
+                                                                                                                                                                                      
 				} catch (Exception e) {
 					amount.setText(value.getAmount() + "");
 
 				}
 
 			}
-		});
+		});*/
 		deleteButton.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -177,4 +281,5 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 	public boolean isChildSelectable(int groupPosition, int childPosition) {
 		return true;
 	}
+	
 }

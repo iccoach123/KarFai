@@ -7,15 +7,22 @@
     <ExpandableListView
         android:id="@+id/expandableListView1"
         android:layout_width="match_parent"
-        android:layout_height="380dp"
-        android:layout_weight="1.04"
+        android:layout_height="377dp"
         android:groupIndicator="@null" >
     </ExpandableListView>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="46dp"
+        android:layout_height="match_parent"
         android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/calButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1.04"
+            android:text="Button" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,15 +32,16 @@
                 android:id="@+id/textView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Medium Text"
+                android:text="จำนวนวัตที่ใช้ทั้งหมด"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/sumwat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Medium Text"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -44,16 +52,17 @@
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Medium Text"
+                android:text="จำนวนเงินทั้งหมด"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/charges"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Medium Text"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
         </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>

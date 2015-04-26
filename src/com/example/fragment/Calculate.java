@@ -13,8 +13,11 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ExpandableListView;
+import android.widget.TextView;
 
 public class Calculate extends Fragment{
 	View rootView;
@@ -23,6 +26,7 @@ public class Calculate extends Fragment{
     HashMap<Data, Data> child;
     MainActivity main;
     List<Data> listData;
+
     public Calculate (MainActivity main){
     	this.main=main;
     }
@@ -37,13 +41,34 @@ public class Calculate extends Fragment{
 		header = new ArrayList<Data>();
 		rootView = inflater.inflate(R.layout.calulate,container,false);
 		createData();
+		Button calButton = (Button) rootView.findViewById(R.id.calButton);
+		
 		ExpandableListView expListView = (ExpandableListView) rootView.findViewById(R.id.expandableListView1);
 		ExpandableListAdapter adapter =new ExpandableListAdapter(inflater, header, child,main);
 		//test adapter =new test(inflater,listData);
 		expListView.setAdapter(adapter);
+
+		calButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				TextView sumwat = (TextView) rootView.findViewById(R.id.sumwat);
+				TextView charges = (TextView) rootView.findViewById(R.id.charges);
+				sumwat.setText(total());
+				
+			}
+		});
+		
+		
+		
+		
+		
 		
 		return rootView;
 	}
+
+
 	private void createData(){
 		for(int i=0;i<listData.size();i++){
 			header.add(listData.get(i));
@@ -65,6 +90,15 @@ public class Calculate extends Fragment{
 			child.put(header.get(i),listdata );
 		}*/
 	}
+	private String total(){
+		double sumwat =0;
+		for(int i=0;i<listData.size();i++){
+			Data value = listData.get(i);
+			sumwat = sumwat + value.getWat()*value.getDay();
+		}
+		return sumwat+"";
+	}
+	
 	
 
 }
