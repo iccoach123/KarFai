@@ -33,7 +33,7 @@ public class Additems extends Fragment{
 		Log.d("2", "2");
 		convertView = inflater.inflate(R.layout.listviewadd, container, false);
 		ListView listview = (ListView) convertView.findViewById(R.id.listAdd);
-		items=main.getitems();
+		items=main.getItemAddList();
 		Log.d("jays", items.size()+"");
 		ListViewAdapter adapter = new  ListViewAdapter(inflater, items);
 		listview.setAdapter(adapter);

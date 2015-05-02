@@ -1,6 +1,7 @@
 package com.example.karfai;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.example.fragment.Additems;
@@ -31,11 +32,16 @@ public class MainActivity extends Activity {
 	private DrawerLayout mDrawerLayout;
 	private List<Fragment> listFragment;
 	private huador data;
+	private MainData md;
+	private DatabaseManager dbm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        md = MainData.getMainData();
+        md.setDatabaseManager(this);
+        dbm = md.getDatabaseManager();
         data = new huador();
 
         //mDrawerLayout = (DrawerLayout) findViewById(R.id.frame_container);
@@ -91,26 +97,29 @@ public class MainActivity extends Activity {
 			Log.d("null","null");
 		}
 	}
-    public List<Data> getListData(){
-		return data.getListData();
-    	
-    }
+
     public void addListData(Data item){
     	
     	Data selectvalue = new Data();
     	
-    	selectvalue.setId(data.getListData().size()+1);
+    	selectvalue.setId(data.getAllDataList().size()+1);
     	selectvalue.setName(item.getName());
     	selectvalue.setWat(item.getWat());
     	data.addData(selectvalue);
     	displayView(0);
     }
-    public List<Data> getitems(){
-    	return data.getItemAdd();
+    public List<Data> getItemAddList(){
+    	return data.getItemAddList();
     }
     public void remove(int position){
-    	data.remove(position);
+    	data.removeData(position);
     	displayView(0);
     }
+
+
+	public ArrayList<Data> getAllDataList() {
+		
+		return this.data.getAllDataList();
+	}
 
 }

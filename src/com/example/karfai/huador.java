@@ -4,44 +4,40 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class huador {
-	List<Data> listData;
-	List<Data> itemAdd;
+	ArrayList<Data> allDataList;
+	MainData md;
+	DatabaseManager dbm;
+
+	ArrayList<Data> itemAddList;
 	public huador(){
-		listData =new ArrayList<Data>();
-		itemAdd = new ArrayList<Data>();
-		Data data = new Data();
-		data.setName("æ—¥≈¡");
-		data.setWat(16);
-		itemAdd.add(data);
-		data = new Data();
-		data.setName("·Õ√Ï");
-		data.setWat(20);
-		itemAdd.add(data);
+		md = MainData.getMainData();
+		dbm = md.getDatabaseManager();
+		allDataList = new ArrayList<Data>();
+		itemAddList = dbm.getAllData();
+	}
+
+	public List<Data> getItemAddList() {
+		
+		return itemAddList;
+	}
+
+	public void setArrayItemAdd(ArrayList<Data> itemAddList) {
+		this.itemAddList = itemAddList;
 		
 	}
 
-	public List<Data> getItemAdd() {
-		
-		return itemAdd;
+	public ArrayList<Data> getAllDataList() {
+		return allDataList;
 	}
 
-	public void setItemAdd(List<Data> itemAdd) {
-		this.itemAdd = itemAdd;
-		
-	}
-
-	public List<Data> getListData() {
-		return listData;
-	}
-
-	public void setListData(List<Data> listData) {
-		this.listData = listData;
+	public void setListData(ArrayList<Data> listData) {
+		this.allDataList = listData;
 	}
 	public void addData(Data value){
-		listData.add(value);
+		allDataList.add(value);
 	}
-	public void remove(int position){
-		listData.remove(position);
+	public void removeData(int position){
+		allDataList.remove(position);
 	}
 	
 	

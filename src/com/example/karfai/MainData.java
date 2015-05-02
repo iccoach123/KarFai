@@ -17,7 +17,7 @@ public class MainData {
 	}
 	
 	public void setDatabaseManager(Context context){
-		DatabaseManager dbm = new DatabaseManager(context);
+		dbm = new DatabaseManager(context);
 	}
 	
 	public DatabaseManager getDatabaseManager(){

@@ -35,7 +35,7 @@ public class Calculate extends Fragment{
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
-		listData = main.getListData();
+		listData = main.getAllDataList();
 		//child = new  HashMap<String, List<Data>>();
 		child = new  HashMap<Data,Data>();
 		header = new ArrayList<Data>();
