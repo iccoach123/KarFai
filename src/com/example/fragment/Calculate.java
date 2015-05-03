@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.example.adapter.ExpandableListAdapter;
 import com.example.adapter.test;
+import com.example.karfai.Calculator;
 import com.example.karfai.Data;
 import com.example.karfai.MainActivity;
 import com.example.karfai.R;
@@ -55,7 +56,7 @@ public class Calculate extends Fragment{
 				// TODO Auto-generated method stub
 				TextView sumwat = (TextView) rootView.findViewById(R.id.sumwat);
 				TextView charges = (TextView) rootView.findViewById(R.id.charges);
-				sumwat.setText(total());
+				sumwat.setText(totalWat());
 				
 			}
 		});
@@ -80,23 +81,15 @@ public class Calculate extends Fragment{
 		header.add(val);
 		
 		
-		/*header.add("æ—¥≈¡");
-		header.add("À≈Õ¥‰ø");
-		header.add("·Õ√Ï");
-		for(int i=0;i<header.size();i++){
-			Data data = new Data();
-			List<Data> listdata = new ArrayList<Data>();
-			listdata.add(data);
-			child.put(header.get(i),listdata );
-		}*/
+	
 	}
-	private String total(){
-		double sumwat =0;
+	private String totalWat(){
+		double sumWat =0;
 		for(int i=0;i<listData.size();i++){
-			Data value = listData.get(i);
-			sumwat = sumwat + value.getWat()*value.getDay();
+			Data data = listData.get(i);
+			sumWat = sumWat + Calculator.watCal(data);
 		}
-		return sumwat+"";
+		return sumWat + "";
 	}
 	
 	
