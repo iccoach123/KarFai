@@ -23,7 +23,6 @@ import android.widget.TextView;
 public class Calculate extends Fragment{
 	View rootView;
     List<Data> header;
-    //HashMap<String, List<Data>> child;
     HashMap<Data, Data> child;
     MainActivity main;
     List<Data> listData;
@@ -37,7 +36,6 @@ public class Calculate extends Fragment{
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		listData = main.getAllDataList();
-		//child = new  HashMap<String, List<Data>>();
 		child = new  HashMap<Data,Data>();
 		header = new ArrayList<Data>();
 		rootView = inflater.inflate(R.layout.calulate,container,false);
@@ -46,7 +44,6 @@ public class Calculate extends Fragment{
 		
 		ExpandableListView expListView = (ExpandableListView) rootView.findViewById(R.id.expandableListView1);
 		ExpandableListAdapter adapter =new ExpandableListAdapter(inflater, header, child,main);
-		//test adapter =new test(inflater,listData);
 		expListView.setAdapter(adapter);
 
 		calButton.setOnClickListener(new OnClickListener() {
@@ -54,9 +51,13 @@ public class Calculate extends Fragment{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				TextView sumwat = (TextView) rootView.findViewById(R.id.sumwat);
-				TextView charges = (TextView) rootView.findViewById(R.id.charges);
-				sumwat.setText(totalWat());
+
+				TextView showWat = (TextView) rootView.findViewById(R.id.sumwat);
+				TextView showBill = (TextView) rootView.findViewById(R.id.charges);
+				double sumWat =  total();
+				showWat.setText(sumWat+"");
+				showBill.setText(totalBill(sumWat));
+
 				
 			}
 		});
@@ -79,17 +80,21 @@ public class Calculate extends Fragment{
 		Data val = new Data();
 		val.setName("ADD");
 		header.add(val);
-		
-		
-	
+
 	}
-	private String totalWat(){
+	private double total(){
 		double sumWat =0;
+
 		for(int i=0;i<listData.size();i++){
 			Data data = listData.get(i);
 			sumWat = sumWat + Calculator.watCal(data);
 		}
-		return sumWat + "";
+
+		return sumWat;
+	}
+	private String totalBill(double sumWat){
+		return Calculator.billCal(sumWat)+"";
+
 	}
 	
 	

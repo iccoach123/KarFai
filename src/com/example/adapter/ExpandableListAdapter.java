@@ -7,7 +7,9 @@ import com.example.karfai.Data;
 import com.example.karfai.MainActivity;
 import com.example.karfai.R;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Typeface;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -85,7 +87,6 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
 				// TODO Auto-generated method stub
 				try{
-					Log.e("bug", s.toString());
 					
 					double inputValue = Double.parseDouble(s.toString());
 					value.setTime(inputValue);
@@ -99,14 +100,12 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 			public void beforeTextChanged(CharSequence s, int start, int count,
 					int after) {
 				// TODO Auto-generated method stub
-				Log.e("before", s.toString());
 				
 			}
 			
 			@Override
 			public void afterTextChanged(Editable s) {
 				// TODO Auto-generated method stub
-				Log.e("after", s.toString());
 				
 			}
 		});
@@ -164,57 +163,14 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 				
 			}
 		});
-		/*
-		time.setOnFocusChangeListener(new OnFocusChangeListener() {
-
-			@Override
-			public void onFocusChange(View v, boolean hasFocus) {
-				// TODO Auto-generated method stub
-				try {
-					value.setTime(Double.parseDouble(time.getText().toString()));
-
-				} catch (Exception e) {
-					time.setText(value.getTime() + "");
-				}
-
-			}
-		});
-		day.setOnFocusChangeListener(new OnFocusChangeListener() {
-
-			@Override
-			public void onFocusChange(View v, boolean hasFocus) {
-				// TODO Auto-generated method stub
-				try {
-					value.setDay(Integer.parseInt(day.getText().toString()));
-
-			
-				} catch (Exception e) {
-					day.setText(value.getDay() + "");
-
-				}
-			}
-		});
-		amount.setOnFocusChangeListener(new OnFocusChangeListener() {
-
-			@Override
-			public void onFocusChange(View v, boolean hasFocus) {
-				// TODO Auto-generated method stub\	
-				try {
-					value.setAmount(Integer.parseInt(amount.getText().toString()));
-                                                                                                                                                                                      
-				} catch (Exception e) {
-					amount.setText(value.getAmount() + "");
-
-				}
-
-			}
-		});*/
 		deleteButton.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				main.remove(groupPosition);
+				dialogCreate(groupPosition);
+				
+				
 				
 			}
 		});
@@ -225,8 +181,6 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 	@Override
 	public int getChildrenCount(int groupPosition) {
 		return 1;
-		// this.data.get(this.listGroup.get(groupPosition))
-		// .size();
 	}
 
 	@Override
@@ -280,6 +234,26 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 	@Override
 	public boolean isChildSelectable(int groupPosition, int childPosition) {
 		return true;
+	}
+	private void dialogCreate(final int groupPosition){
+		AlertDialog.Builder builder =
+		        new AlertDialog.Builder(main);
+		builder.setMessage("Do you want to delete?");
+		builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+		    public void onClick(DialogInterface dialog, int id) {
+		    	main.remove(groupPosition);
+		    }
+		});
+		builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+			
+				
+			}
+		});
+		builder.show();
 	}
 	
 }
