@@ -50,13 +50,13 @@ public class Calculator {
 			bill = bill + 40.90;
 
 		}
-			return bill;
+			return bill/1000.0;
 	}
 	
 	
 	public static double watCal(Data data){
 		double totalWat = 0;
-		double time = (data.getTime() + (data.getDay()*24));// hour
+		double time = (data.getTime()*(data.getDay()));// hour
 		totalWat = time  * data.getAmount()*data.getWat();
 		return totalWat;
 	}
