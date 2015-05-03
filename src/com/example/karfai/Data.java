@@ -4,8 +4,8 @@ import java.util.List;
 
 public class Data {
 	private double time=0;
-	private int day=0;
-	private int amount=0;
+	private int day=30;
+	private int amount=1;
 	private double wat;
 	private int id;
 	public int getId() {

@@ -85,13 +85,11 @@ public class MainActivity extends Activity {
 		}
 		
 		if (fragment != null) {
-			Log.d("!null","!null");
 			FragmentManager fragmentManager = getFragmentManager();
 			fragmentManager.beginTransaction().addToBackStack(null)
 					.replace(R.id.frame_container, fragment).commit();
 
 		}else{
-			Log.d("null","null");
 		}
 	}
 
