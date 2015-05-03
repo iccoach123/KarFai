@@ -7,13 +7,14 @@ public class huador {
 	ArrayList<Data> allDataList;
 	MainData md;
 	DatabaseManager dbm;
-
 	ArrayList<Data> itemAddList;
 	public huador(){
 		md = MainData.getMainData();
 		dbm = md.getDatabaseManager();
 		allDataList = new ArrayList<Data>();
 		itemAddList = dbm.getAllData();
+		
+		
 	}
 
 	public List<Data> getItemAddList() {
@@ -29,6 +30,9 @@ public class huador {
 	public ArrayList<Data> getAllDataList() {
 		return allDataList;
 	}
+	
+
+
 
 	public void setListData(ArrayList<Data> listData) {
 		this.allDataList = listData;
@@ -39,6 +43,7 @@ public class huador {
 	public void removeData(int position){
 		allDataList.remove(position);
 	}
+	
 	
 	
 	

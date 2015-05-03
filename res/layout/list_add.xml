@@ -6,11 +6,11 @@
     android:background="#FFFFFF" >
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/icon_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:src="@drawable/ic_launcher" />
+        />
 
     <TextView
         android:id="@+id/addname"

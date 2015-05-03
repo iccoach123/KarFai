@@ -50,9 +50,11 @@ public class Calculate extends Fragment{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				TextView sumwat = (TextView) rootView.findViewById(R.id.sumwat);
-				TextView charges = (TextView) rootView.findViewById(R.id.charges);
-				sumwat.setText(total());
+				TextView showWat = (TextView) rootView.findViewById(R.id.sumwat);
+				TextView showBill = (TextView) rootView.findViewById(R.id.charges);
+				double sumWat =  total();
+				showWat.setText(sumWat+"");
+				showBill.setText(totalBill(sumWat));
 				
 			}
 		});
@@ -76,13 +78,17 @@ public class Calculate extends Fragment{
 		val.setName("ADD");
 		header.add(val);
 	}
-	private String total(){
+	private double total(){
 		double sumwat =0;
 		for(int i=0;i<listData.size();i++){
 			Data value = listData.get(i);
 			sumwat = sumwat + value.getWat()*value.getDay();
 		}
-		return sumwat+"";
+		return sumwat;
+	}
+	private String totalBill(double sumWat){
+		
+		return 1+"";
 	}
 	
 	
