@@ -22,7 +22,6 @@ import android.widget.TextView;
 public class Calculate extends Fragment{
 	View rootView;
     List<Data> header;
-    //HashMap<String, List<Data>> child;
     HashMap<Data, Data> child;
     MainActivity main;
     List<Data> listData;
@@ -36,7 +35,6 @@ public class Calculate extends Fragment{
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		listData = main.getAllDataList();
-		//child = new  HashMap<String, List<Data>>();
 		child = new  HashMap<Data,Data>();
 		header = new ArrayList<Data>();
 		rootView = inflater.inflate(R.layout.calulate,container,false);
@@ -45,7 +43,6 @@ public class Calculate extends Fragment{
 		
 		ExpandableListView expListView = (ExpandableListView) rootView.findViewById(R.id.expandableListView1);
 		ExpandableListAdapter adapter =new ExpandableListAdapter(inflater, header, child,main);
-		//test adapter =new test(inflater,listData);
 		expListView.setAdapter(adapter);
 
 		calButton.setOnClickListener(new OnClickListener() {
@@ -78,17 +75,6 @@ public class Calculate extends Fragment{
 		Data val = new Data();
 		val.setName("ADD");
 		header.add(val);
-		
-		
-		/*header.add("æ—¥≈¡");
-		header.add("À≈Õ¥‰ø");
-		header.add("·Õ√Ï");
-		for(int i=0;i<header.size();i++){
-			Data data = new Data();
-			List<Data> listdata = new ArrayList<Data>();
-			listdata.add(data);
-			child.put(header.get(i),listdata );
-		}*/
 	}
 	private String total(){
 		double sumwat =0;

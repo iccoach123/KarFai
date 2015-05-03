@@ -30,11 +30,9 @@ public class Additems extends Fragment{
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
-		Log.d("2", "2");
 		convertView = inflater.inflate(R.layout.listviewadd, container, false);
 		ListView listview = (ListView) convertView.findViewById(R.id.listAdd);
 		items=main.getItemAddList();
-		Log.d("jays", items.size()+"");
 		ListViewAdapter adapter = new  ListViewAdapter(inflater, items);
 		listview.setAdapter(adapter);
 		listview.setOnItemClickListener(new OnItemClickListener() {
@@ -43,7 +41,6 @@ public class Additems extends Fragment{
 			public void onItemClick(AdapterView<?> adapter, View v, int position,
 					long id) {
 				// TODO Auto-generated method stub
-				Log.d("listview", "click");
 				main.addListData((Data) adapter.getItemAtPosition(position));
 				
 				

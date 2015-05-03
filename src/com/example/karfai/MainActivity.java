@@ -43,8 +43,6 @@ public class MainActivity extends Activity {
         md.setDatabaseManager(this);
         dbm = md.getDatabaseManager();
         data = new huador();
-
-        //mDrawerLayout = (DrawerLayout) findViewById(R.id.frame_container);
         displayView(0);
 
 
@@ -72,7 +70,6 @@ public class MainActivity extends Activity {
 
     public void displayView(int position) {
 		Fragment fragment ;
-		//Log.d("1", "1");
 
 		switch (position) {
 		case 0:
