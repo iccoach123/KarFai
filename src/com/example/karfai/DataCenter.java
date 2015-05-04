@@ -3,6 +3,10 @@ package com.example.karfai;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.graphics.Point;
+import android.util.DisplayMetrics;
+import android.view.Display;
+
 public class DataCenter {
 	private ArrayList<Data> allDataList;
 	private MainData md;
@@ -10,6 +14,8 @@ public class DataCenter {
 	private ArrayList<Data> itemAddList;
 	private int[] imageIcon;
 	private static DataCenter obj ;
+	private int display_width;
+	private int display_height;
 	
 	public static DataCenter getObj() {
 		if (obj == null){
@@ -24,6 +30,24 @@ public class DataCenter {
 		allDataList = new ArrayList<Data>();
 		itemAddList = dbm.getAllData();
 		imageIcon = new int[]{R.drawable.ic_launcher,R.drawable.delete};	
+		
+	}
+
+
+	public int getDisplay_width() {
+		return display_width;
+	}
+
+	public void setDisplay_width(int display_width) {
+		this.display_width = display_width;
+	}
+
+	public int getDisplay_height() {
+		return display_height;
+	}
+
+	public void setDisplay_height(int display_height) {
+		this.display_height = display_height;
 	}
 
 	public int getImageIcon(int index) {

@@ -45,7 +45,6 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 	private EditText day;
 	private EditText time;
 
-
 	public TextView getTxtWat() {
 		return txtWat;
 	}
@@ -92,56 +91,51 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 		day.setFocusable(false);
 		amount.setText(value.getAmount() + "");
 		amount.requestFocus();
-		wat.setText(value.getWat()+"");
+		
+		wat.setText((int)value.getWat() + "" );
 		wat.setFocusable(false);
 		time.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				dialogTime(groupPosition, childPosition);
-				
+
 			}
 		});
-		/*time.addTextChangedListener(new TextWatcher() {
-
-			@Override
-			public void onTextChanged(CharSequence s, int start, int before,
-					int count) {
-				// TODO Auto-generated method stub
-				try {
-
-					double inputValue = Double.parseDouble(s.toString());
-					value.setTime(inputValue);
-				} catch (Exception e) {
-
-				}
-
-			}
-
-			@Override
-			public void beforeTextChanged(CharSequence s, int start, int count,
-					int after) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void afterTextChanged(Editable s) {
-				// TODO Auto-generated method stub
-
-			}
-		});*/
+		/*
+		 * time.addTextChangedListener(new TextWatcher() {
+		 * 
+		 * @Override public void onTextChanged(CharSequence s, int start, int
+		 * before, int count) { // TODO Auto-generated method stub try {
+		 * 
+		 * double inputValue = Double.parseDouble(s.toString());
+		 * value.setTime(inputValue); } catch (Exception e) {
+		 * 
+		 * }
+		 * 
+		 * }
+		 * 
+		 * @Override public void beforeTextChanged(CharSequence s, int start,
+		 * int count, int after) { // TODO Auto-generated method stub
+		 * 
+		 * }
+		 * 
+		 * @Override public void afterTextChanged(Editable s) { // TODO
+		 * Auto-generated method stub
+		 * 
+		 * } });
+		 */
 		day.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				dialogDay(groupPosition, childPosition);
-				
+
 			}
 		});
-		
+
 		/*
 		 * day.addTextChangedListener(new TextWatcher() {
 		 * 
@@ -247,10 +241,11 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 			convertView = infalInflater.inflate(R.layout.list_group, parent,
 					false);
 			TextView header = (TextView) convertView.findViewById(R.id.header);
-			ImageView imgIcon = (ImageView) convertView.findViewById(R.id.icon_group);
+			ImageView imgIcon = (ImageView) convertView
+					.findViewById(R.id.icon_group);
 			Data data = (Data) getChild(groupPosition, 0);
 			imgIcon.setImageResource(DataCenter.getObj().getImageIcon(0));
-			
+
 			header.setText(headerTitle);
 		}
 
@@ -310,55 +305,61 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				// TODO Auto-generated method stub
-				
-				day.setText(selected+"");
+
+				day.setText(selected + "");
 				Data data = (Data) getChild(groupPosition, childPosition);
 				data.setDay(selected);
-				
 
 			}
 		});
 		builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-			
+
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				// TODO Auto-generated method stub
 				dialog.dismiss();
-				
+
 			}
-		} );
+		});
 		builder.show();
 	}
-	private void dialogTime(final int groupPosition, final int childPosition){
+
+	private void dialogTime(final int groupPosition, final int childPosition) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(main);
-		View v = infalInflater.inflate(R.layout.clock, null , false);
+		View v = infalInflater.inflate(R.layout.clock, null, false);
 		final TimePicker tp = (TimePicker) v.findViewById(R.id.timePicker1);
 		tp.setIs24HourView(true);
+		final Data data = (Data) getChild(groupPosition, childPosition);
 		tp.setCurrentHour(0);
 		tp.setCurrentMinute(0);
+		builder.setTitle("จำนวนเวลาต่อวัน");
 		builder.setView(v);
 		builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-			
+
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				// TODO Auto-generated method stub
 				tp.getCurrentHour();
-				Toast.makeText(main,tp.getCurrentHour()+":"+tp.getCurrentMinute(), Toast.LENGTH_SHORT).show();
-				String gettime = tp.getCurrentHour()+"."+tp.getCurrentMinute();
+				Toast.makeText(main,
+						tp.getCurrentHour() + ":" + tp.getCurrentMinute(),
+						Toast.LENGTH_SHORT).show();
+				String gettime = tp.getCurrentHour() + "."
+						+ tp.getCurrentMinute();
 				time.setText(gettime);
-				Data data = (Data) getChild(groupPosition, childPosition);
+
 				data.setTime(Double.parseDouble(gettime));
 			}
 		});
-		builder.setNegativeButton("Cancle", new DialogInterface.OnClickListener() {
-			
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				// TODO Auto-generated method stub
-				dialog.dismiss();
-				
-			}
-		} );
+		builder.setNegativeButton("Cancle",
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						// TODO Auto-generated method stub
+						dialog.dismiss();
+
+					}
+				});
 		builder.show();
 	}
 

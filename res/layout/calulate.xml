@@ -7,7 +7,7 @@
     <ExpandableListView
         android:id="@+id/expandableListView1"
         android:layout_width="match_parent"
-        android:layout_height="377dp"
+        android:layout_height="384dp"
         android:groupIndicator="@null" >
     </ExpandableListView>
 
@@ -41,7 +41,6 @@
                 android:layout_height="wrap_content"
                 android:text="0"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
-
         </LinearLayout>
 
         <LinearLayout
@@ -62,7 +61,6 @@
                 android:text="0"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
         </LinearLayout>
-
     </LinearLayout>
 
 </LinearLayout>

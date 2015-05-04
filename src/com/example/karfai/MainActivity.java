@@ -21,9 +21,11 @@ import com.opencsv.CSVReader;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -44,6 +46,11 @@ public class MainActivity extends Activity {
         dbm = md.getDatabaseManager();
         data = DataCenter.getObj();
         displayView(0);
+        Display display = getWindowManager().getDefaultDisplay();
+		Point size = new Point();
+		display.getSize(size);
+		data.setDisplay_width(display.getWidth());
+		data.setDisplay_height(display.getHeight());
 
 
     }

@@ -8,6 +8,7 @@ import com.example.adapter.ExpandableListAdapter;
 import com.example.adapter.test;
 import com.example.karfai.Calculator;
 import com.example.karfai.Data;
+import com.example.karfai.DataCenter;
 import com.example.karfai.MainActivity;
 import com.example.karfai.R;
 import android.app.Fragment;
@@ -43,6 +44,10 @@ public class Calculate extends Fragment{
 		Button calButton = (Button) rootView.findViewById(R.id.calButton);
 		
 		ExpandableListView expListView = (ExpandableListView) rootView.findViewById(R.id.expandableListView1);
+		ViewGroup.LayoutParams params = expListView.getLayoutParams();
+		params.height = (DataCenter.getObj().getDisplay_height()*70)/100;
+		expListView.setLayoutParams(params);
+		
 		ExpandableListAdapter adapter =new ExpandableListAdapter(inflater, header, child,main);
 		expListView.setAdapter(adapter);
 
