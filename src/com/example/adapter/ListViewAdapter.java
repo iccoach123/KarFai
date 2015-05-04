@@ -3,6 +3,7 @@ package com.example.adapter;
 import java.util.List;
 
 import com.example.karfai.Data;
+import com.example.karfai.DataCenter;
 import com.example.karfai.R;
 
 import android.view.LayoutInflater;
@@ -15,12 +16,11 @@ import android.widget.TextView;
 public class ListViewAdapter extends BaseAdapter {
 	private LayoutInflater infalInflater;
 	private List<Data> items;
-	private int[] imageIcon;
 	
 	public ListViewAdapter (LayoutInflater infalInflater,List<Data> items){
 		this.infalInflater=infalInflater;
 		this.items=items;
-		imageIcon = new int[]{R.drawable.ic_launcher,R.drawable.delete};
+		
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public class ListViewAdapter extends BaseAdapter {
 		
 		//TextView wat = (TextView) convertView.findViewById(R.id.addwat);
 		name.setText(value.getName());
-		icon.setImageResource(imageIcon[0]);
+		icon.setImageResource(DataCenter.getObj().getImageIcon(0));
 		//wat.setText(value.getWat()+"");
 		
 		

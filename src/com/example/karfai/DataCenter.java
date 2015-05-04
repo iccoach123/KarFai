@@ -3,18 +3,31 @@ package com.example.karfai;
 import java.util.ArrayList;
 import java.util.List;
 
-public class huador {
-	ArrayList<Data> allDataList;
-	MainData md;
-	DatabaseManager dbm;
-	ArrayList<Data> itemAddList;
-	public huador(){
+public class DataCenter {
+	private ArrayList<Data> allDataList;
+	private MainData md;
+	private DatabaseManager dbm;
+	private ArrayList<Data> itemAddList;
+	private int[] imageIcon;
+	private static DataCenter obj ;
+	
+	public static DataCenter getObj() {
+		if (obj == null){
+			obj = new DataCenter();
+		}
+		return obj;
+	}
+
+	public DataCenter(){
 		md = MainData.getMainData();
 		dbm = md.getDatabaseManager();
 		allDataList = new ArrayList<Data>();
 		itemAddList = dbm.getAllData();
-		
-		
+		imageIcon = new int[]{R.drawable.ic_launcher,R.drawable.delete};	
+	}
+
+	public int getImageIcon(int index) {
+		return imageIcon[index];
 	}
 
 	public List<Data> getItemAddList() {

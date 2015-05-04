@@ -31,7 +31,7 @@ import android.view.MenuItem;
 public class MainActivity extends Activity {
 	private DrawerLayout mDrawerLayout;
 	private List<Fragment> listFragment;
-	private huador data;
+	private DataCenter data;
 	private MainData md;
 	private DatabaseManager dbm;
 
@@ -42,7 +42,7 @@ public class MainActivity extends Activity {
         md = MainData.getMainData();
         md.setDatabaseManager(this);
         dbm = md.getDatabaseManager();
-        data = new huador();
+        data = DataCenter.getObj();
         displayView(0);
 
 

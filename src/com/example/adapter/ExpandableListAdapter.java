@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.example.karfai.Data;
+import com.example.karfai.DataCenter;
 import com.example.karfai.MainActivity;
 import com.example.karfai.R;
 
@@ -44,6 +45,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 	private EditText day;
 	private EditText time;
 
+
 	public TextView getTxtWat() {
 		return txtWat;
 	}
@@ -58,6 +60,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 		this.listGroup = listGroup;
 		this.data = data;
 		this.main = main;
+
 	}
 
 	@Override
@@ -244,6 +247,10 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 			convertView = infalInflater.inflate(R.layout.list_group, parent,
 					false);
 			TextView header = (TextView) convertView.findViewById(R.id.header);
+			ImageView imgIcon = (ImageView) convertView.findViewById(R.id.icon_group);
+			Data data = (Data) getChild(groupPosition, 0);
+			imgIcon.setImageResource(DataCenter.getObj().getImageIcon(0));
+			
 			header.setText(headerTitle);
 		}
 

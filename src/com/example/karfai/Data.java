@@ -8,6 +8,13 @@ public class Data {
 	private int amount=1;
 	private double wat;
 	private int id;
+	private int icon=0;
+	public int getIcon() {
+		return icon;
+	}
+	public void setIcon(int icon) {
+		this.icon = icon;
+	}
 	public int getId() {
 		return id;
 	}

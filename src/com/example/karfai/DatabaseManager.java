@@ -100,6 +100,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 			Data data = new Data();
 			data.setName(cursor.getString(1));
 			data.setWat(cursor.getDouble(2));
+			data.setIcon(cursor.getInt(3));
 			allDataList.add(data);
 			}
 		cursor.close();
