@@ -42,8 +42,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 	private List<Data> test;
 	private TextView txtWat;
 	private int selected;
-	private EditText day;
-	private EditText time;
+	
 
 	public TextView getTxtWat() {
 		return txtWat;
@@ -78,8 +77,8 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
 		final Data value = (Data) getChild(groupPosition, childPosition);
 		convertView = infalInflater.inflate(R.layout.list_child, parent, false);
-		time = (EditText) convertView.findViewById(R.id.time);
-		day = (EditText) convertView.findViewById(R.id.day);
+		final EditText time = (EditText) convertView.findViewById(R.id.time);
+		final EditText day = (EditText) convertView.findViewById(R.id.day);
 		final EditText amount = (EditText) convertView
 				.findViewById(R.id.amount);
 		final ImageButton deleteButton = (ImageButton) convertView
@@ -99,7 +98,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				dialogTime(groupPosition, childPosition);
+				dialogTime(groupPosition, childPosition,time);
 
 			}
 		});
@@ -131,7 +130,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				dialogDay(groupPosition, childPosition);
+				dialogDay(groupPosition, childPosition,day);
 
 			}
 		});
@@ -281,7 +280,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 		builder.show();
 	}
 
-	private void dialogDay(final int groupPosition, final int childPosition) {
+	private void dialogDay(final int groupPosition, final int childPosition,final EditText day) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(main);
 		int dayofmonth = 31;
 		CharSequence[] number = new CharSequence[32];
@@ -324,7 +323,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 		builder.show();
 	}
 
-	private void dialogTime(final int groupPosition, final int childPosition) {
+	private void dialogTime(final int groupPosition, final int childPosition,final EditText time) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(main);
 		View v = infalInflater.inflate(R.layout.clock, null, false);
 		final TimePicker tp = (TimePicker) v.findViewById(R.id.timePicker1);
