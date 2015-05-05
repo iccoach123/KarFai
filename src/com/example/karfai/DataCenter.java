@@ -1,5 +1,6 @@
 package com.example.karfai;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +8,7 @@ import android.graphics.Point;
 import android.util.DisplayMetrics;
 import android.view.Display;
 
-public class DataCenter {
+public class DataCenter implements Serializable {
 	private ArrayList<Data> allDataList;
 	private MainData md;
 	private DatabaseManager dbm;
@@ -16,7 +17,15 @@ public class DataCenter {
 	private static DataCenter obj ;
 	private int display_width;
 	private int display_height;
-	
+	private MainActivity main;
+
+	public MainActivity getMain() {
+		return main;
+	}
+
+	public void setMain(MainActivity main) {
+		this.main = main;
+	}
 	public static DataCenter getObj() {
 		if (obj == null){
 			obj = new DataCenter();

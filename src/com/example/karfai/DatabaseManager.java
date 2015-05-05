@@ -22,6 +22,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 	private String sql;
 	private Context context;
 
+
 	public DatabaseManager(Context context) {
 		super(context, SCHEMA, null, 1);
 		this.context = context;

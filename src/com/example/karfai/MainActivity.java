@@ -23,6 +23,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.Display;
@@ -44,7 +45,12 @@ public class MainActivity extends Activity {
         md = MainData.getMainData();
         md.setDatabaseManager(this);
         dbm = md.getDatabaseManager();
-        data = DataCenter.getObj();
+        if ( savedInstanceState == null ){
+        	data = DataCenter.getObj();
+        }else { 
+        	data = (DataCenter) savedInstanceState.get("data");
+        }
+        data.setMain(this);
         displayView(0);
         Display display = getWindowManager().getDefaultDisplay();
 		Point size = new Point();
@@ -80,10 +86,10 @@ public class MainActivity extends Activity {
 
 		switch (position) {
 		case 0:
-			fragment = new Calculate(this);
+			fragment = new Calculate();
 			break;
 		case 1:
-			fragment = new Additems(this);
+			fragment = new Additems();
 			break;
 
 		
@@ -100,7 +106,15 @@ public class MainActivity extends Activity {
 		}
 	}
 
-    public void addListData(Data item){
+    @Override
+	protected void onSaveInstanceState(Bundle outState) {
+		// TODO Auto-generated method stub
+    	outState.putSerializable("data", data);
+		super.onSaveInstanceState(outState);
+	}
+
+
+	public void addListData(Data item){
     	
     	Data selectvalue = new Data();
     	
@@ -117,8 +131,6 @@ public class MainActivity extends Activity {
     	data.removeData(position);
     	displayView(0);
     }
-
-
 	public ArrayList<Data> getAllDataList() {
 		
 		return this.data.getAllDataList();

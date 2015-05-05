@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.example.adapter.ListViewAdapter;
 import com.example.karfai.Data;
+import com.example.karfai.DataCenter;
 import com.example.karfai.MainActivity;
 import com.example.karfai.R;
 
@@ -22,8 +23,8 @@ public class Additems extends Fragment{
 	private View convertView;
 	private MainActivity main;
 	private List<Data> items;
-	public Additems(MainActivity main){
-		this.main=main;
+	public Additems(){
+		this.main=DataCenter.getObj().getMain() ;
 	}
 
 	@Override

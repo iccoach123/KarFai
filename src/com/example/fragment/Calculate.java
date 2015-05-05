@@ -28,8 +28,8 @@ public class Calculate extends Fragment{
     MainActivity main;
     List<Data> listData;
 
-    public Calculate (MainActivity main){
-    	this.main=main;
+    public Calculate (){
+    	this.main=DataCenter.getObj().getMain() ;
     }
 
 	@Override
