@@ -1,5 +1,7 @@
 package com.example.karfai;
 
+import java.text.DecimalFormat;
+
 public class Calculator {
 	public static double billCal(double wat) {
 		double bill = 0;
@@ -50,7 +52,9 @@ public class Calculator {
 			bill = bill + 40.90;
 
 		}
-			return bill/1000.0;
+		bill/=1000.0;
+		
+			return roundTwoDecimals(bill);
 	}
 	
 	
@@ -58,7 +62,12 @@ public class Calculator {
 		double totalWat = 0;
 		double time = (data.getTime()*(data.getDay()));// hour
 		totalWat = time  * data.getAmount()*data.getWat();
-		return totalWat;
+		return roundTwoDecimals(totalWat);
+	}
+	
+	public static Double roundTwoDecimals(double d) {
+        DecimalFormat twoDecimals = new DecimalFormat("#.##");
+        return Double.valueOf(twoDecimals.format(d));
 	}
 
 }

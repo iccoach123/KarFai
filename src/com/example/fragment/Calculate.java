@@ -41,6 +41,8 @@ public class Calculate extends Fragment{
 		header = new ArrayList<Data>();
 		rootView = inflater.inflate(R.layout.calulate,container,false);
 		createData();
+		
+		
 		Button calButton = (Button) rootView.findViewById(R.id.calButton);
 		
 		ExpandableListView expListView = (ExpandableListView) rootView.findViewById(R.id.expandableListView1);
