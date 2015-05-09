@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.res.Configuration;
 import android.graphics.Point;
 import android.util.DisplayMetrics;
 import android.view.Display;
@@ -18,6 +19,15 @@ public class DataCenter implements Serializable {
 	private int display_width;
 	private int display_height;
 	private MainActivity main;
+	private Configuration config;
+
+	public Configuration getConfig() {
+		return config;
+	}
+
+	public void setConfig(Configuration config) {
+		this.config = config;
+	}
 
 	public MainActivity getMain() {
 		return main;
