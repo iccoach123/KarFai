@@ -1,6 +1,7 @@
 package com.example.adapter;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -42,7 +43,6 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 	private List<Data> test;
 	private TextView txtWat;
 	private int selected;
-	
 
 	public TextView getTxtWat() {
 		return txtWat;
@@ -90,15 +90,15 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 		day.setFocusable(false);
 		amount.setText(value.getAmount() + "");
 		amount.requestFocus();
-		
-		wat.setText((int)value.getWat() + "" );
+
+		wat.setText((int) value.getWat() + "");
 		wat.setFocusable(false);
 		time.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				dialogTime(groupPosition, childPosition,time);
+				dialogTime(groupPosition, childPosition, time);
 
 			}
 		});
@@ -130,7 +130,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				dialogDay(groupPosition, childPosition,day);
+				dialogDay(groupPosition, childPosition, day);
 
 			}
 		});
@@ -157,7 +157,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 		 * 
 		 * } });
 		 */
-	
+
 		amount.addTextChangedListener(new TextWatcher() {
 
 			@Override
@@ -167,12 +167,11 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 				try {
 					int inputValue = Integer.parseInt(s.toString());
 					value.setAmount(inputValue);
-					
+
 					main.displayView(0);
 				} catch (Exception e) {
 
 				}
-				
 
 			}
 
@@ -186,7 +185,6 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 			@Override
 			public void afterTextChanged(Editable s) {
 				// TODO Auto-generated method stub
-				
 
 			}
 		});
@@ -285,7 +283,8 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 		builder.show();
 	}
 
-	private void dialogDay(final int groupPosition, final int childPosition,final EditText day) {
+	private void dialogDay(final int groupPosition, final int childPosition,
+			final EditText day) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(main);
 		int dayofmonth = 31;
 		CharSequence[] number = new CharSequence[32];
@@ -294,7 +293,9 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 			number[i] = i + "";
 		}
 		builder.setTitle("จำนวนวันที่ใช้ต่อเดือน");
-		builder.setSingleChoiceItems(number, 0,
+
+		builder.setSingleChoiceItems(number,
+				((Data) getChild(groupPosition, childPosition)).getDay(),
 				new DialogInterface.OnClickListener() {
 
 					@Override
@@ -326,17 +327,30 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
 			}
 		});
+
 		builder.show();
 	}
 
-	private void dialogTime(final int groupPosition, final int childPosition,final EditText time) {
+	private void dialogTime(final int groupPosition, final int childPosition,
+			final EditText time) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(main);
 		View v = infalInflater.inflate(R.layout.clock, null, false);
 		final TimePicker tp = (TimePicker) v.findViewById(R.id.timePicker1);
 		tp.setIs24HourView(true);
 		final Data data = (Data) getChild(groupPosition, childPosition);
-		tp.setCurrentHour(0);
-		tp.setCurrentMinute(0);
+		String[] timeSelected;
+		if (data.getTime() != 0.0) {
+
+			timeSelected = Double.toString(data.getTime()).split("\\.");
+
+		} else {
+			timeSelected = new String[2];
+			timeSelected[0] = "0";
+			timeSelected[1] = "0";
+		}
+
+		tp.setCurrentHour(Integer.parseInt(timeSelected[0]));
+		tp.setCurrentMinute(Integer.parseInt(timeSelected[1]));
 		builder.setTitle("จำนวนเวลาต่อวัน");
 		builder.setView(v);
 		builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -344,10 +358,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				// TODO Auto-generated method stub
-				tp.getCurrentHour();
-				Toast.makeText(main,
-						tp.getCurrentHour() + ":" + tp.getCurrentMinute(),
-						Toast.LENGTH_SHORT).show();
+
 				String gettime = tp.getCurrentHour() + "."
 						+ tp.getCurrentMinute();
 				time.setText(gettime);
