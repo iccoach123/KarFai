@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.example.adapter.ExpandableListAdapter;
-import com.example.adapter.test;
 import com.example.karfai.Calculator;
 import com.example.karfai.Data;
 import com.example.karfai.DataCenter;
@@ -60,13 +59,12 @@ public class Calculate extends Fragment {
 
 		createData();
 
-		Button calButton = (Button) rootView.findViewById(R.id.calButton);
 
 		ExpandableListView expListView = (ExpandableListView) rootView
 				.findViewById(R.id.expandableListView1);
 		ViewGroup.LayoutParams params = expListView.getLayoutParams();
 		if (!landscape) {
-			params.height = (DataCenter.getObj().getDisplay_height() * 70) / 100;
+			params.height = (DataCenter.getObj().getDisplay_height() * 80) / 100;
 		}else{
 			params.width = (DataCenter.getObj().getDisplay_width() * 65) / 100;
 			params.height = (DataCenter.getObj().getDisplay_height() * 70) / 100;
@@ -102,24 +100,12 @@ public class Calculate extends Fragment {
 			}
 		});
 		
-		final TextView showWat = (TextView) rootView
+		TextView showWat = (TextView) rootView
 				.findViewById(R.id.sumwat);
-		final TextView showBill = (TextView) rootView
+		TextView showBill = (TextView) rootView
 				.findViewById(R.id.charges);
 
-		calButton.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-
-				
-				double sumWat = total();
-				showWat.setText(sumWat + "");
-				showBill.setText(totalBill(sumWat));
-
-			}
-		});
+		
 		double sumWat = total();
 		showWat.setText(sumWat+"");
 		showBill.setText(totalBill(sumWat));
