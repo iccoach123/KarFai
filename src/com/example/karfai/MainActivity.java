@@ -204,6 +204,7 @@ public class MainActivity extends Activity {
 		selectvalue.setId(data.getAllDataList().size() + 1);
 		selectvalue.setName(item.getName());
 		selectvalue.setWat(item.getWat());
+		selectvalue.changeStatusExpand(true);
 		data.addData(selectvalue);
 		displayView(0);
 	}

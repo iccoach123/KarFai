@@ -9,6 +9,13 @@ public class Data {
 	private double wat;
 	private int id;
 	private int icon=0;
+	private boolean statusExpand;
+	public void changeStatusExpand(boolean status){
+		statusExpand = status;
+	}
+	public boolean isStatusExpand() {
+		return statusExpand;
+	}
 	public int getIcon() {
 		return icon;
 	}

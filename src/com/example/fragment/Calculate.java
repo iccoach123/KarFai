@@ -14,13 +14,17 @@ import com.example.karfai.R;
 import android.app.Fragment;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ExpandableListView;
+import android.widget.ExpandableListView.OnGroupCollapseListener;
+import android.widget.ExpandableListView.OnGroupExpandListener;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Calculate extends Fragment {
 	View rootView;
@@ -72,6 +76,36 @@ public class Calculate extends Fragment {
 		ExpandableListAdapter adapter = new ExpandableListAdapter(inflater,
 				header, child, main);
 		expListView.setAdapter(adapter);
+		for(int i = 0;i<listData.size();i++){
+			if(listData.get(i).isStatusExpand()){
+				expListView.expandGroup(i);
+			}
+			else{
+				expListView.collapseGroup(i);
+			}
+		}
+		expListView.setOnGroupExpandListener(new  OnGroupExpandListener() {
+			
+			@Override
+			public void onGroupExpand(int groupPosition) {
+				// TODO Auto-generated method stub
+				listData.get(groupPosition).changeStatusExpand(true);
+			}
+		});
+		expListView.setOnGroupCollapseListener(new OnGroupCollapseListener() {
+			
+			@Override
+			public void onGroupCollapse(int groupPosition) {
+				// TODO Auto-generated method stub
+				listData.get(groupPosition).changeStatusExpand(false);
+				
+			}
+		});
+		
+		final TextView showWat = (TextView) rootView
+				.findViewById(R.id.sumwat);
+		final TextView showBill = (TextView) rootView
+				.findViewById(R.id.charges);
 
 		calButton.setOnClickListener(new OnClickListener() {
 
@@ -79,16 +113,16 @@ public class Calculate extends Fragment {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 
-				TextView showWat = (TextView) rootView
-						.findViewById(R.id.sumwat);
-				TextView showBill = (TextView) rootView
-						.findViewById(R.id.charges);
+				
 				double sumWat = total();
 				showWat.setText(sumWat + "");
 				showBill.setText(totalBill(sumWat));
 
 			}
 		});
+		double sumWat = total();
+		showWat.setText(sumWat+"");
+		showBill.setText(totalBill(sumWat));
 
 		return rootView;
 	}

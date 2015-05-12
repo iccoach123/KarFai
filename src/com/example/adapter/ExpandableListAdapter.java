@@ -157,6 +157,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 		 * 
 		 * } });
 		 */
+	
 		amount.addTextChangedListener(new TextWatcher() {
 
 			@Override
@@ -166,9 +167,12 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 				try {
 					int inputValue = Integer.parseInt(s.toString());
 					value.setAmount(inputValue);
+					
+					main.displayView(0);
 				} catch (Exception e) {
 
 				}
+				
 
 			}
 
@@ -182,6 +186,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 			@Override
 			public void afterTextChanged(Editable s) {
 				// TODO Auto-generated method stub
+				
 
 			}
 		});
@@ -308,6 +313,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 				day.setText(selected + "");
 				Data data = (Data) getChild(groupPosition, childPosition);
 				data.setDay(selected);
+				main.displayView(0);
 
 			}
 		});
@@ -347,6 +353,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 				time.setText(gettime);
 
 				data.setTime(Double.parseDouble(gettime));
+				main.displayView(0);
 			}
 		});
 		builder.setNegativeButton("Cancle",

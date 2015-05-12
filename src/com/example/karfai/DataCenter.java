@@ -20,7 +20,6 @@ public class DataCenter implements Serializable {
 	private int display_height;
 	private MainActivity main;
 	private Configuration config;
-
 	public Configuration getConfig() {
 		return config;
 	}
@@ -48,7 +47,7 @@ public class DataCenter implements Serializable {
 		dbm = md.getDatabaseManager();
 		allDataList = new ArrayList<Data>();
 		itemAddList = dbm.getAllData();
-		imageIcon = new int[]{R.drawable.ic_launcher,R.drawable.delete};	
+		imageIcon = new int[]{R.drawable.ic_launcher,R.drawable.delete};
 		
 	}
 
