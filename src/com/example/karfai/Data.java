@@ -3,13 +3,28 @@ package com.example.karfai;
 import java.util.List;
 
 public class Data {
-	private double time=0;
 	private int day=30;
 	private int amount=1;
 	private double wat;
 	private int id;
 	private int icon=0;
 	private boolean statusExpand;
+	private int hour=0;
+	
+	private int minute=0;
+	
+	public int getHour() {
+		return hour;
+	}
+	public void setHour(int hour) {
+		this.hour = hour;
+	}
+	public int getMinute() {
+		return minute;
+	}
+	public void setMinute(int minute) {
+		this.minute = minute;
+	}
 	public void changeStatusExpand(boolean status){
 		statusExpand = status;
 	}
@@ -34,12 +49,7 @@ public class Data {
 	public Data(){
 		
 	}
-	public double getTime() {
-		return time;
-	}
-	public void setTime(double time) {
-		this.time = time;
-	}
+
 	public int getDay() {
 		return day;
 	}

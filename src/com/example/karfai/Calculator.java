@@ -61,6 +61,7 @@ public class Calculator {
 	public static double watCal(Data data){
 		double totalWat = 0;
 		double time = (data.getTime()*(data.getDay()));// hour
+		//แก้เวลา มี ชม กับ นาทีมาให้
 		totalWat = time  * data.getAmount()*data.getWat();
 		return roundTwoDecimals(totalWat);
 	}

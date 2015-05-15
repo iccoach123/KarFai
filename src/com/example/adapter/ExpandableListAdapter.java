@@ -84,7 +84,8 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 		final ImageButton deleteButton = (ImageButton) convertView
 				.findViewById(R.id.buttondelete);
 		EditText wat = (EditText) convertView.findViewById(R.id.wat);
-		time.setText(value.getTime() + "");
+		String convertTime = value.getHour()+value.getMinute()*0.01+"";
+		time.setText(convertTime);
 		time.setFocusable(false);
 		day.setText(value.getDay() + "");
 		day.setFocusable(false);
@@ -338,19 +339,10 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 		final TimePicker tp = (TimePicker) v.findViewById(R.id.timePicker1);
 		tp.setIs24HourView(true);
 		final Data data = (Data) getChild(groupPosition, childPosition);
-		String[] timeSelected;
-		if (data.getTime() != 0.0) {
 
-			timeSelected = Double.toString(data.getTime()).split("\\.");
-
-		} else {
-			timeSelected = new String[2];
-			timeSelected[0] = "0";
-			timeSelected[1] = "0";
-		}
-
-		tp.setCurrentHour(Integer.parseInt(timeSelected[0]));
-		tp.setCurrentMinute(Integer.parseInt(timeSelected[1]));
+		
+		tp.setCurrentHour(data.getHour());
+		tp.setCurrentMinute(data.getMinute());
 		builder.setTitle("จำนวนเวลาต่อวัน");
 		builder.setView(v);
 		builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -359,11 +351,9 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 			public void onClick(DialogInterface dialog, int which) {
 				// TODO Auto-generated method stub
 
-				String gettime = tp.getCurrentHour() + "."
-						+ tp.getCurrentMinute();
-				time.setText(gettime);
-
-				data.setTime(Double.parseDouble(gettime));
+		
+				data.setHour(tp.getCurrentHour());
+				data.setMinute(tp.getCurrentMinute());
 				main.displayView(0);
 			}
 		});
