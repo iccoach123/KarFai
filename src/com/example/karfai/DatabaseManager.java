@@ -60,6 +60,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 		for (Data data : listData) {
 			values.put("name", data.getName());
 			values.put("wat", data.getWat());
+			
 			db.insert("karfaidata", null, values);
 		}
 
@@ -82,6 +83,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 				Data data = new Data();
 				data.setName(row[0].toString());
 				data.setWat(Double.parseDouble(row[1].toString().replaceAll(",","")));
+				data.setIcon(Integer.parseInt(row[2]));
 				listData.add(data);
 				System.out.println(data.getName());
 			}

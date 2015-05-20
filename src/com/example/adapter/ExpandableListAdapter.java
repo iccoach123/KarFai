@@ -36,11 +36,9 @@ import android.widget.Toast;
 
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
 	private List<Data> listGroup;
-	// private HashMap<String, List<Data>> data;
 	private HashMap<Data, Data> data;
 	private LayoutInflater infalInflater;
 	private MainActivity main;
-	private List<Data> test;
 	private TextView txtWat;
 	private int selected;
 
@@ -103,29 +101,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
 			}
 		});
-		/*
-		 * time.addTextChangedListener(new TextWatcher() {
-		 * 
-		 * @Override public void onTextChanged(CharSequence s, int start, int
-		 * before, int count) { // TODO Auto-generated method stub try {
-		 * 
-		 * double inputValue = Double.parseDouble(s.toString());
-		 * value.setTime(inputValue); } catch (Exception e) {
-		 * 
-		 * }
-		 * 
-		 * }
-		 * 
-		 * @Override public void beforeTextChanged(CharSequence s, int start,
-		 * int count, int after) { // TODO Auto-generated method stub
-		 * 
-		 * }
-		 * 
-		 * @Override public void afterTextChanged(Editable s) { // TODO
-		 * Auto-generated method stub
-		 * 
-		 * } });
-		 */
+	
 		day.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -136,28 +112,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 			}
 		});
 
-		/*
-		 * day.addTextChangedListener(new TextWatcher() {
-		 * 
-		 * @Override public void onTextChanged(CharSequence s, int start, int
-		 * before, int count) { // TODO Auto-generated method stub try{ int
-		 * inputValue = Integer.parseInt(s.toString());
-		 * value.setDay(inputValue); }catch(Exception e){
-		 * 
-		 * }
-		 * 
-		 * }
-		 * 
-		 * @Override public void beforeTextChanged(CharSequence s, int start,
-		 * int count, int after) { // TODO Auto-generated method stub
-		 * 
-		 * }
-		 * 
-		 * @Override public void afterTextChanged(Editable s) { // TODO
-		 * Auto-generated method stub
-		 * 
-		 * } });
-		 */
+		
 
 		amount.addTextChangedListener(new TextWatcher() {
 
@@ -247,7 +202,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 			ImageView imgIcon = (ImageView) convertView
 					.findViewById(R.id.icon_group);
 			Data data = (Data) getChild(groupPosition, 0);
-			imgIcon.setImageResource(DataCenter.getObj().getImageIcon(0));
+			imgIcon.setImageResource(DataCenter.getObj().getImageIcon(data.getIcon()));
 
 			header.setText(headerTitle);
 		}

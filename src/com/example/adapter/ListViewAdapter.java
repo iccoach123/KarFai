@@ -52,7 +52,7 @@ public class ListViewAdapter extends BaseAdapter {
 		
 		//TextView wat = (TextView) convertView.findViewById(R.id.addwat);
 		name.setText(value.getName());
-		icon.setImageResource(DataCenter.getObj().getImageIcon(0));
+		icon.setImageResource(DataCenter.getObj().getImageIcon(value.getIcon()));
 		//wat.setText(value.getWat()+"");
 		
 		
