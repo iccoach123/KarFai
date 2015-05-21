@@ -24,7 +24,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
 
 	public DatabaseManager(Context context) {
-		super(context, SCHEMA, null, 1);
+		super(context, SCHEMA, null, 3);
 		this.context = context;
 
 	}
@@ -51,16 +51,17 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+		resetDefalutData(db);
 	}
 
 	public void resetDefalutData(SQLiteDatabase db) {
 		ArrayList<Data> listData = loadDefalutDataList();
-		//deleteAllData(db);
+		deleteAllData(db);
 		ContentValues values = new ContentValues();
 		for (Data data : listData) {
 			values.put("name", data.getName());
 			values.put("wat", data.getWat());
-			
+			values.put("image", data.getIcon());
 			db.insert("karfaidata", null, values);
 		}
 
