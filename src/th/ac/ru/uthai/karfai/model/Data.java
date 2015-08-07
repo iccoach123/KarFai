@@ -9,7 +9,7 @@ public class Data {
 	private int id;
 	private int icon=0;
 	private boolean statusExpand;
-	private int hour=0;
+	private int hour=1;
 	
 	private int minute=0;
 	
