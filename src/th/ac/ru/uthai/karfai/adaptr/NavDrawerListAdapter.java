@@ -1,8 +1,9 @@
-package com.example.adapter;
+package th.ac.ru.uthai.karfai.adaptr;
 
 import java.util.ArrayList;
 
-import com.example.karfai.NavDrawerItem;
+import th.ac.ru.uthai.karfai.main.NavDrawerItem;
+
 import com.example.karfai.R;
 
 import android.app.Activity;

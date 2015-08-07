@@ -6,7 +6,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.karfai.Data;
+import th.ac.ru.uthai.karfai.model.Data;
+
 import com.opencsv.CSVReader;
 
 import android.R.string;

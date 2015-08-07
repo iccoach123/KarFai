@@ -1,4 +1,4 @@
-package com.example.karfai;
+package th.ac.ru.uthai.karfai.main;
 
 import th.ac.ru.uthai.karfai.database.DatabaseManager;
 import android.content.Context;

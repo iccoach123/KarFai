@@ -1,13 +1,14 @@
-package com.example.adapter;
+package th.ac.ru.uthai.karfai.adaptr;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-import com.example.karfai.Data;
-import com.example.karfai.DataCenter;
-import com.example.karfai.MainActivity;
+import th.ac.ru.uthai.karfai.main.DataCenter;
+import th.ac.ru.uthai.karfai.main.MainActivity;
+import th.ac.ru.uthai.karfai.model.Data;
+
 import com.example.karfai.R;
 
 import android.app.AlertDialog;

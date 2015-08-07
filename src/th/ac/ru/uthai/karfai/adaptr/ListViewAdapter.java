@@ -1,9 +1,10 @@
-package com.example.adapter;
+package th.ac.ru.uthai.karfai.adaptr;
 
 import java.util.List;
 
-import com.example.karfai.Data;
-import com.example.karfai.DataCenter;
+import th.ac.ru.uthai.karfai.main.DataCenter;
+import th.ac.ru.uthai.karfai.model.Data;
+
 import com.example.karfai.R;
 
 import android.view.LayoutInflater;

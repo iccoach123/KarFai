@@ -1,14 +1,15 @@
-package com.example.fragment;
+package th.ac.ru.uthai.karfai.frangment;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import com.example.adapter.ExpandableListAdapter;
-import com.example.karfai.Calculator;
-import com.example.karfai.Data;
-import com.example.karfai.DataCenter;
-import com.example.karfai.MainActivity;
+import th.ac.ru.uthai.karfai.adaptr.ExpandableListAdapter;
+import th.ac.ru.uthai.karfai.main.Calculator;
+import th.ac.ru.uthai.karfai.main.DataCenter;
+import th.ac.ru.uthai.karfai.main.MainActivity;
+import th.ac.ru.uthai.karfai.model.Data;
+
 import com.example.karfai.R;
 import android.app.Fragment;
 import android.content.res.Configuration;

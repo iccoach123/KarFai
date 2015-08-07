@@ -1,10 +1,13 @@
-package com.example.karfai;
+package th.ac.ru.uthai.karfai.main;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.karfai.R;
+
 import th.ac.ru.uthai.karfai.database.DatabaseManager;
+import th.ac.ru.uthai.karfai.model.Data;
 
 import android.content.res.Configuration;
 import android.graphics.Point;

@@ -1,11 +1,9 @@
-package com.example.karfai;
+package th.ac.ru.uthai.karfai.main;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.adapter.NavDrawerListAdapter;
-import com.example.fragment.Additems;
-import com.example.fragment.Calculate;
+import com.example.karfai.R;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,7 +12,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 
+import th.ac.ru.uthai.karfai.adaptr.NavDrawerListAdapter;
 import th.ac.ru.uthai.karfai.database.DatabaseManager;
+import th.ac.ru.uthai.karfai.frangment.Additems;
+import th.ac.ru.uthai.karfai.frangment.Calculate;
+import th.ac.ru.uthai.karfai.model.Data;
 
 import com.opencsv.CSVReader;
 

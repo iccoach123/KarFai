@@ -1,6 +1,8 @@
-package com.example.karfai;
+package th.ac.ru.uthai.karfai.main;
 
 import java.text.DecimalFormat;
+
+import th.ac.ru.uthai.karfai.model.Data;
 
 public class Calculator {
 	public static double billCal(double wat) {

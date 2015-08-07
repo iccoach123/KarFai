@@ -1,4 +1,4 @@
-package com.example.karfai;
+package th.ac.ru.uthai.karfai.model;
 
 import java.util.List;
 

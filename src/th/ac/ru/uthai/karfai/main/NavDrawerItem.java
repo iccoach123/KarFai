@@ -1,4 +1,4 @@
-package com.example.karfai;
+package th.ac.ru.uthai.karfai.main;
 
 public class NavDrawerItem {
     
