@@ -6,7 +6,7 @@
 
     <ExpandableListView
         android:id="@+id/expandableListView1"
-        android:layout_width="298dp"
+        android:layout_width="wrap_content"
         android:layout_height="386dp"
         android:groupIndicator="@null" >
 

@@ -3,22 +3,21 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:layout_margin="@dimen/activity_vertical_margin"
-    android:background="#FFFFFF"
-    android:orientation="horizontal" >
+    android:background="@drawable/listadd"
+    android:orientation="horizontal"
+    android:layout_marginBottom="10dp" >
 
     <ImageView
         android:id="@+id/icon_add"
         android:layout_width="wrap_content"
-        android:layout_height="49dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_weight="0.10" 
-        android:layout_margin="@dimen/activity_vertical_margin"/>
-    
+        />
 
     <TextView
         android:id="@+id/addname"
         android:layout_width="wrap_content"
-        android:layout_height="37dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_weight="0.48"
         android:text="Medium Text"

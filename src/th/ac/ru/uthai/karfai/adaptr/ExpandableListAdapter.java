@@ -187,7 +187,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 		if (headerTitle.equals("ADD")) {
 			convertView = infalInflater.inflate(R.layout.list_buttonadd,
 					parent, false);
-			ImageButton add = (ImageButton) convertView
+			Button add = (Button) convertView
 					.findViewById(R.id.buttonadd);
 			add.setOnClickListener(new OnClickListener() {
 
@@ -251,7 +251,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 		for (int i = 0; i <= dayofmonth; i++) {
 			number[i] = i + "";
 		}
-		builder.setTitle("จำนวนวันที่ใช้ต่อเดือน");
+		builder.setTitle(R.string.day);
 
 		builder.setSingleChoiceItems(number,
 				((Data) getChild(groupPosition, childPosition)).getDay(),
@@ -301,7 +301,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 		
 		tp.setCurrentHour(data.getHour());
 		tp.setCurrentMinute(data.getMinute());
-		builder.setTitle("จำนวนเวลาต่อวัน");
+		builder.setTitle(R.string.time);
 		builder.setView(v);
 		builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 

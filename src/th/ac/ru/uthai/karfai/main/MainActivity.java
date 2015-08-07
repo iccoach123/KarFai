@@ -14,8 +14,10 @@ import java.net.URL;
 
 import th.ac.ru.uthai.karfai.adaptr.NavDrawerListAdapter;
 import th.ac.ru.uthai.karfai.database.DatabaseManager;
+import th.ac.ru.uthai.karfai.frangment.AboutUs;
 import th.ac.ru.uthai.karfai.frangment.Additems;
 import th.ac.ru.uthai.karfai.frangment.Calculate;
+import th.ac.ru.uthai.karfai.frangment.Estimate;
 import th.ac.ru.uthai.karfai.model.Data;
 
 import com.opencsv.CSVReader;
@@ -145,7 +147,7 @@ public class MainActivity extends Activity {
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		// if nav drawer is opened, hide the action items
 		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-		menu.findItem(R.id.action_settings).setVisible(!drawerOpen);
+		//menu.findItem(R.id.action_settings).setVisible(!drawerOpen);
 		return super.onPrepareOptionsMenu(menu);
 	}
 
@@ -158,18 +160,18 @@ public class MainActivity extends Activity {
             return true;
         }
         // Handle action bar actions click
-        switch (item.getItemId()) {
+        /*switch (item.getItemId()) {
         case R.id.action_settings:
             return true;
         default:
-            return super.onOptionsItemSelected(item);
-        }
+            
+        }*/
+        return super.onOptionsItemSelected(item);
 
 	}
 
 	public void displayView(int position) {
 		Fragment fragment;
-
 		switch (position) {
 		case 0:
 			fragment = new Calculate();
@@ -177,6 +179,13 @@ public class MainActivity extends Activity {
 		case 1:
 			fragment = new Additems();
 			break;
+		case 2:
+			fragment = new Estimate();
+			break;
+		case 3:
+			fragment = new AboutUs();
+			break;
+		
 
 		default:
 			fragment = null;

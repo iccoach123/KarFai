@@ -3,11 +3,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
+    
 
-    <ImageButton
+<!--     <ImageButton
         android:id="@+id/buttonadd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/save" />
+        android:background="@null"
+        android:text="@string/buttonAdd"
+        android:gravity="center"
+        android:src="@drawable/add" />  -->
+    <Button 
+    android:id="@+id/buttonadd" 
+    android:layout_width="match_parent" 
+    android:layout_height="wrap_content"
+    android:background="@drawable/addmenu"
+    android:drawableLeft="@drawable/add"
+     android:drawableRight="@drawable/add"
+    android:text="@string/buttonAdd"/>
 
 </LinearLayout>

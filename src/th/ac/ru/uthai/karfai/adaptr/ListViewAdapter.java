@@ -56,8 +56,6 @@ public class ListViewAdapter extends BaseAdapter {
 		name.setText(value.getName());
 		icon.setImageResource(MainData.getMainData().getDataConfig().getImageIcon(value.getIcon()));
 		//wat.setText(value.getWat()+"");
-		
-		
 		return convertView;
 	}
 
