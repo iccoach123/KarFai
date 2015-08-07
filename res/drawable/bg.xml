@@ -18,9 +18,9 @@
         android:topRightRadius="7dp" />
 
     <gradient
-        android:startColor="#FFFF99"
-        android:centerColor="#FFFF99"
-        android:endColor="#FFFF99"
+        android:startColor="#FFF8DC"
+        
+        android:endColor="#FFF8DC"
         android:gradientRadius="50"
         android:centerX="50%"
         android:centerY="50%"

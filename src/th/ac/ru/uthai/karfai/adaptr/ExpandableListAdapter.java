@@ -15,6 +15,7 @@ import com.example.karfai.R;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.PorterDuff.Mode;
 import android.graphics.Typeface;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -206,7 +207,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 					.findViewById(R.id.icon_group);
 			Data data = (Data) getChild(groupPosition, 0);
 			imgIcon.setImageResource(MainData.getMainData().getDataConfig().getImageIcon(data.getIcon()));
-
+		
 			header.setText(headerTitle);
 		}
 
