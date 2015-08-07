@@ -14,13 +14,13 @@ import android.graphics.Point;
 import android.util.DisplayMetrics;
 import android.view.Display;
 
-public class DataCenter implements Serializable {
+public class DataConfig implements Serializable {
 	private ArrayList<Data> allDataList;
 	private MainData md;
 	private DatabaseManager dbm;
 	private ArrayList<Data> itemAddList;
 	private int[] imageIcon;
-	private static DataCenter obj;
+	private static DataConfig obj;
 	private int display_width;
 	private int display_height;
 	private MainActivity main;
@@ -34,22 +34,14 @@ public class DataCenter implements Serializable {
 		this.config = config;
 	}
 
-	public MainActivity getMain() {
-		return main;
-	}
+
 
 	public void setMain(MainActivity main) {
 		this.main = main;
 	}
 
-	public static DataCenter getObj() {
-		if (obj == null) {
-			obj = new DataCenter();
-		}
-		return obj;
-	}
 
-	public DataCenter() {
+	public DataConfig() {
 		md = MainData.getMainData();
 		dbm = md.getDatabaseManager();
 		allDataList = new ArrayList<Data>();

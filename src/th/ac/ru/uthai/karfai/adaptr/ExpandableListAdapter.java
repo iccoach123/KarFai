@@ -5,8 +5,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-import th.ac.ru.uthai.karfai.main.DataCenter;
+import th.ac.ru.uthai.karfai.main.DataConfig;
 import th.ac.ru.uthai.karfai.main.MainActivity;
+import th.ac.ru.uthai.karfai.main.MainData;
 import th.ac.ru.uthai.karfai.model.Data;
 
 import com.example.karfai.R;
@@ -42,6 +43,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 	private MainActivity main;
 	private TextView txtWat;
 	private int selected;
+	
 
 	public TextView getTxtWat() {
 		return txtWat;
@@ -203,7 +205,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 			ImageView imgIcon = (ImageView) convertView
 					.findViewById(R.id.icon_group);
 			Data data = (Data) getChild(groupPosition, 0);
-			imgIcon.setImageResource(DataCenter.getObj().getImageIcon(data.getIcon()));
+			imgIcon.setImageResource(MainData.getMainData().getDataConfig().getImageIcon(data.getIcon()));
 
 			header.setText(headerTitle);
 		}

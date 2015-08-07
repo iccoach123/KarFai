@@ -54,7 +54,7 @@ public class MainActivity extends Activity {
 	private NavDrawerListAdapter adapter;
 
 	private List<Fragment> listFragment;
-	private DataCenter data;
+	private DataConfig dataConf;
 	private MainData md;
 	private DatabaseManager dbm;
 
@@ -64,20 +64,22 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		md = MainData.getMainData();
 		md.setDatabaseManager(this);
+		md.setMa(this);
+		dataConf = md.getDataConfig();
 		dbm = md.getDatabaseManager();
 		if (savedInstanceState == null) {
-			data = DataCenter.getObj();
+			dataConf = md.getDataConfig();
 		} else {
-			data = (DataCenter) savedInstanceState.get("data");
+			dataConf = (DataConfig) savedInstanceState.get("data");
 		}
-		data.setMain(this);
+		dataConf.setMain(this);
 		
 		Display display = getWindowManager().getDefaultDisplay();
 		Point size = new Point();
 		display.getSize(size);
-		data.setDisplay_width(display.getWidth());
-		data.setDisplay_height(display.getHeight());
-		data.setConfig(getResources().getConfiguration());
+		dataConf.setDisplay_width(display.getWidth());
+		dataConf.setDisplay_height(display.getHeight());
+		dataConf.setConfig(getResources().getConfiguration());
 		mTitle = mDrawerTitle = getTitle();
 
 		navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
@@ -197,7 +199,7 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		// TODO Auto-generated method stub
-		outState.putSerializable("data", data);
+		outState.putSerializable("data", dataConf);
 		super.onSaveInstanceState(outState);
 	}
 
@@ -205,27 +207,27 @@ public class MainActivity extends Activity {
 
 		Data selectvalue = new Data();
 
-		selectvalue.setId(data.getAllDataList().size() + 1);
+		selectvalue.setId(dataConf.getAllDataList().size() + 1);
 		selectvalue.setName(item.getName());
 		selectvalue.setWat(item.getWat());
 		selectvalue.setIcon(item.getIcon());
 		selectvalue.changeStatusExpand(true);
-		data.addData(selectvalue);
+		dataConf.addData(selectvalue);
 		displayView(0);
 	}
 
 	public List<Data> getItemAddList() {
-		return data.getItemAddList();
+		return dataConf.getItemAddList();
 	}
 
 	public void remove(int position) {
-		data.removeData(position);
+		dataConf.removeData(position);
 		displayView(0);
 	}
 
 	public ArrayList<Data> getAllDataList() {
 
-		return this.data.getAllDataList();
+		return this.dataConf.getAllDataList();
 	}
 
 	@Override

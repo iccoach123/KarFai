@@ -2,7 +2,8 @@ package th.ac.ru.uthai.karfai.adaptr;
 
 import java.util.List;
 
-import th.ac.ru.uthai.karfai.main.DataCenter;
+import th.ac.ru.uthai.karfai.main.DataConfig;
+import th.ac.ru.uthai.karfai.main.MainData;
 import th.ac.ru.uthai.karfai.model.Data;
 
 import com.example.karfai.R;
@@ -53,7 +54,7 @@ public class ListViewAdapter extends BaseAdapter {
 		
 		//TextView wat = (TextView) convertView.findViewById(R.id.addwat);
 		name.setText(value.getName());
-		icon.setImageResource(DataCenter.getObj().getImageIcon(value.getIcon()));
+		icon.setImageResource(MainData.getMainData().getDataConfig().getImageIcon(value.getIcon()));
 		//wat.setText(value.getWat()+"");
 		
 		

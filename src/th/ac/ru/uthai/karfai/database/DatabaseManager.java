@@ -35,6 +35,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 		createData(db);
 		resetDefalutData(db);
+
 	}
 
 	private void createData(SQLiteDatabase db) {
@@ -47,6 +48,8 @@ public class DatabaseManager extends SQLiteOpenHelper {
 			db.execSQL(sql);
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}catch(Exception e){
+			e.printStackTrace();
 		}
 		Log.d("Database", "Create Data");
 	}
@@ -54,17 +57,18 @@ public class DatabaseManager extends SQLiteOpenHelper {
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		resetDefalutData(db);
+
 	}
 
 	public void resetDefalutData(SQLiteDatabase db) {
 		ArrayList<Data> listData = loadDefalutDataList();
-		deleteAllData(db);
 		ContentValues values = new ContentValues();
 		for (Data data : listData) {
 			values.put("name", data.getName());
 			values.put("wat", data.getWat());
 			values.put("image", data.getIcon());
 			db.insert("karfaidata", null, values);
+			
 		}
 
 	}
@@ -111,6 +115,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 			allDataList.add(data);
 		}
 		cursor.close();
+		db.close();
 		return allDataList;
 	}
 

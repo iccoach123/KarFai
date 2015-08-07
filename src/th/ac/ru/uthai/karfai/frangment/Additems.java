@@ -3,8 +3,9 @@ package th.ac.ru.uthai.karfai.frangment;
 import java.util.List;
 
 import th.ac.ru.uthai.karfai.adaptr.ListViewAdapter;
-import th.ac.ru.uthai.karfai.main.DataCenter;
+import th.ac.ru.uthai.karfai.main.DataConfig;
 import th.ac.ru.uthai.karfai.main.MainActivity;
+import th.ac.ru.uthai.karfai.main.MainData;
 import th.ac.ru.uthai.karfai.model.Data;
 
 import com.example.karfai.R;
@@ -23,9 +24,11 @@ import android.widget.ListView;
 public class Additems extends Fragment{
 	private View convertView;
 	private MainActivity main;
+	private MainData md;
 	private List<Data> items;
 	public Additems(){
-		this.main=DataCenter.getObj().getMain() ;
+		md = MainData.getMainData();
+		this.main=md.getMainActivity();
 	}
 
 	@Override

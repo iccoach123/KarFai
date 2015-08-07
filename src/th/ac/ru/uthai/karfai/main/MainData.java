@@ -7,7 +7,15 @@ public class MainData {
 	
 	private static MainData md = null;
 	private DatabaseManager dbm = null;
+	private MainActivity ma;
+	private DataConfig dataConfig;
 	
+	public MainActivity getMainActivity() {
+		return ma;
+	}
+	public void setMa(MainActivity ma) {
+		this.ma = ma;
+	}
 	private MainData(){
 	}
 	public static MainData getMainData(){
@@ -23,6 +31,12 @@ public class MainData {
 	
 	public DatabaseManager getDatabaseManager(){
 		return dbm;
+	}
+	public DataConfig getDataConfig() {
+		if(dataConfig == null){
+			dataConfig = new DataConfig();
+		}
+		return dataConfig;
 	}
 	
 	

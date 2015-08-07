@@ -6,25 +6,22 @@ import java.util.List;
 
 import th.ac.ru.uthai.karfai.adaptr.ExpandableListAdapter;
 import th.ac.ru.uthai.karfai.main.Calculator;
-import th.ac.ru.uthai.karfai.main.DataCenter;
+import th.ac.ru.uthai.karfai.main.DataConfig;
 import th.ac.ru.uthai.karfai.main.MainActivity;
+import th.ac.ru.uthai.karfai.main.MainData;
 import th.ac.ru.uthai.karfai.model.Data;
-
-import com.example.karfai.R;
 import android.app.Fragment;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnGroupCollapseListener;
 import android.widget.ExpandableListView.OnGroupExpandListener;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.karfai.R;
 
 public class Calculate extends Fragment {
 	View rootView;
@@ -34,10 +31,14 @@ public class Calculate extends Fragment {
 	List<Data> listData;
 	Configuration Config;
 	boolean landscape;
+	MainData md;
+	DataConfig dataConfig;
 
 
 	public Calculate() {
-		this.main = DataCenter.getObj().getMain();
+		md = MainData.getMainData();
+		this.main = md.getMainActivity();
+		dataConfig = md.getDataConfig();
 	
 	}
 
@@ -48,8 +49,8 @@ public class Calculate extends Fragment {
 		listData = main.getAllDataList();
 		child = new HashMap<Data, Data>();
 		header = new ArrayList<Data>();
-		if (DataCenter.getObj().getConfig().orientation == DataCenter.getObj()
-				.getConfig().ORIENTATION_PORTRAIT) {
+		if (dataConfig.getConfig().orientation == dataConfig.
+				getConfig().ORIENTATION_PORTRAIT) {
 			rootView = inflater.inflate(R.layout.calulate, container, false);
 			landscape = false;
 		} else {
@@ -65,10 +66,10 @@ public class Calculate extends Fragment {
 				.findViewById(R.id.expandableListView1);
 		ViewGroup.LayoutParams params = expListView.getLayoutParams();
 		if (!landscape) {
-			params.height = (DataCenter.getObj().getDisplay_height() * 80) / 100;
+			params.height = (dataConfig.getDisplay_height() * 80) / 100;
 		}else{
-			params.width = (DataCenter.getObj().getDisplay_width() * 65) / 100;
-			params.height = (DataCenter.getObj().getDisplay_height() * 70) / 100;
+			params.width = (dataConfig.getDisplay_width() * 65) / 100;
+			params.height = (dataConfig.getDisplay_height() * 70) / 100;
 		}
 		expListView.setLayoutParams(params);
 
