@@ -14,6 +14,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 
+import th.ac.ru.uthai.karfai.database.DatabaseManager;
+
 import com.opencsv.CSVReader;
 
 import android.app.Activity;

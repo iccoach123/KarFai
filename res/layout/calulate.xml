@@ -24,15 +24,30 @@
                 android:id="@+id/textView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="จำนวนวัตที่ใช้ทั้งหมด"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:layout_weight="0.60"
+                android:layout_marginStart="5dp"
+                android:text="หน่วยไฟฟ้าทั้งหมด"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/sumwat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="0.31"
                 android:text="0"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="20sp" />
+            
+            <TextView
+                android:id="@+id/unitwat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.12"
+                android:text="วัตต์"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="20sp" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -43,16 +58,31 @@
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="จำนวนเงินทั้งหมด"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:layout_weight="0.60"
+                android:layout_marginStart="5dp"
+                android:text="ค่าไฟฟ้าทั้งหมด"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/charges"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="0.25"
                 android:text="0"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/unitcharges"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.09"
+                android:text="บาท"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
+
         </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>

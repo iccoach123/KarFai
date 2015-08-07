@@ -1,5 +1,6 @@
 package com.example.karfai;
 
+import th.ac.ru.uthai.karfai.database.DatabaseManager;
 import android.content.Context;
 
 public class MainData {

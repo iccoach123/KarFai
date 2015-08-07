@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import th.ac.ru.uthai.karfai.database.DatabaseManager;
+
 import android.content.res.Configuration;
 import android.graphics.Point;
 import android.util.DisplayMetrics;
