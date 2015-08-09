@@ -44,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.12"
-                android:text="วัตต์"
+                android:text="kW"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textSize="20sp" />
 

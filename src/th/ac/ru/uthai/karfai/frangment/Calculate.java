@@ -109,7 +109,7 @@ public class Calculate extends Fragment {
 
 		
 		double sumWat = total();
-		showWat.setText(sumWat+"");
+		showWat.setText(sumWat/1000+"");
 		showBill.setText(totalBill(sumWat));
 
 		return rootView;
